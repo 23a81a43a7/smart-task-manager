@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass {
+    @apply bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30 shadow-lg;
+  }
+  .glass-dark {
+    @apply bg-black bg-opacity-30 backdrop-blur-lg border border-gray-700 shadow-lg;
+  }
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
