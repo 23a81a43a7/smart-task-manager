@@ -11,7 +11,7 @@ interface User {
 
 interface AuthState {
   user: User | null;
-  login: (userData: User, rememberMe?: boolean) => void;
+  login: (userData: User) => void;
   logout: () => void;
   darkMode: boolean;
   toggleDarkMode: () => void;
@@ -25,19 +25,13 @@ export const useAuthStore = create<AuthState>((set) => {
   if (isDark) document.documentElement.classList.add('dark');
 
   return {
-    user: JSON.parse(sessionStorage.getItem('user') || localStorage.getItem('user') || 'null'),
-    login: (userData, rememberMe = false) => {
-      const userStr = JSON.stringify(userData);
-      if (rememberMe) {
-        localStorage.setItem('user', userStr);
-      } else {
-        sessionStorage.setItem('user', userStr);
-      }
+    user: JSON.parse(sessionStorage.getItem('user') || 'null'),
+    login: (userData) => {
+      sessionStorage.setItem('user', JSON.stringify(userData));
       set({ user: userData });
     },
     logout: () => {
       sessionStorage.removeItem('user');
-      localStorage.removeItem('user');
       set({ user: null });
     },
     darkMode: isDark,
