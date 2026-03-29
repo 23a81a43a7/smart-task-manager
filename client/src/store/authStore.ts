@@ -25,13 +25,13 @@ export const useAuthStore = create<AuthState>((set) => {
   if (isDark) document.documentElement.classList.add('dark');
 
   return {
-    user: JSON.parse(localStorage.getItem('user') || 'null'),
+    user: JSON.parse(sessionStorage.getItem('user') || 'null'),
     login: (userData) => {
-      localStorage.setItem('user', JSON.stringify(userData));
+      sessionStorage.setItem('user', JSON.stringify(userData));
       set({ user: userData });
     },
     logout: () => {
-      localStorage.removeItem('user');
+      sessionStorage.removeItem('user');
       set({ user: null });
     },
     darkMode: isDark,
