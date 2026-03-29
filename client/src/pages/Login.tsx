@@ -30,7 +30,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative">
+      {/* Interactive Watermark */}
+      <div className="absolute bottom-4 right-6 text-xl font-bold text-gray-400 dark:text-gray-600 opacity-20 hover:opacity-100 hover:scale-110 hover:-translate-y-2 transition-all duration-500 ease-out z-0 cursor-default tracking-widest select-none">
+        ayyappaKorlepara
+      </div>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

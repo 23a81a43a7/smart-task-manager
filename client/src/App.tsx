@@ -18,10 +18,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen relative">
-        {/* Watermark */}
-        <div className="fixed bottom-4 right-6 text-lg font-bold text-gray-400 dark:text-gray-600 opacity-40 pointer-events-none select-none z-50 tracking-widest">
-          ayyappaKorlepara
-        </div>
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
