@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { useTaskStore, Task } from '../store/taskStore';
 import TaskCard from '../components/TaskCard';
@@ -12,7 +12,7 @@ const Dashboard = () => {
   const { tasks, loading, stats, fetchTasks } = useTaskStore();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
-  
+
   // Local state for search/filter to keep it simple
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
@@ -32,8 +32,8 @@ const Dashboard = () => {
   };
 
   const filteredTasks = tasks.filter(t => {
-    const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          (t.description || '').toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (t.description || '').toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = filterStatus === 'All' ? true : t.status === filterStatus;
     return matchesSearch && matchesStatus;
   });

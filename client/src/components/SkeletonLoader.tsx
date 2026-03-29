@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const TaskSkeleton = () => (
   <div className="glass dark:glass-dark rounded-xl p-5 mb-4 animate-pulse">
     <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
