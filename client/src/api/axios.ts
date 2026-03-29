@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api', // Uses env variable in production
+  baseURL: import.meta.env.VITE_API_URL || 'https://smart-task-manager-q1xd.onrender.com/api', // Uses env variable in production
 });
 
 api.interceptors.request.use((config) => {
